@@ -16,6 +16,8 @@
 @synthesize statusMenuItem;
 @synthesize cycleThread;
 @synthesize menuOpen;
+@synthesize menuGuarded;
+@synthesize menuGuardedItem;
 
 -(void) awakeFromNib
 {
@@ -32,6 +34,7 @@
   [statusMenuItem setMenu:statusMenu];
   [statusMenuItem setTitle:@"Crash"];
   menuOpen = NO;
+  self.menuGuarded = YES;
 }
 
 -(void) cycleStatus:(id) ignore
@@ -43,7 +46,7 @@
   NSInteger titleLength = 2;
   while (![[NSThread currentThread] isCancelled])
   {
-    if (!menuOpen)
+    if ((!menuOpen) || (menuOpen && !menuGuarded))
     {
       [status setTitle:[completeTitle substringToIndex:titleLength]];
       titleLength = (titleLength + 2) % 20;
@@ -71,6 +74,18 @@
     [cycleThread release];
     cycleThread = nil;
   }
+}
+
+-(IBAction) toggleGuardAction:(id) sender
+{
+  self.menuGuarded = !self.menuGuarded;
+}
+
+-(void) setMenuGuarded:(BOOL) mg
+{
+  [menuGuardedItem setTitle:(mg ? @"Disable Menu Guard" : @"Enable Menu Guard")];
+  menuGuarded = mg;
+  NSLog(@"Menu Guard is %@", (mg ? @"ON" : @"OFF"));
 }
 
 -(IBAction) quitAction:(id) sender;

@@ -67,6 +67,24 @@
 						<reference key="NSOnImage" ref="449997933"/>
 						<reference key="NSMixedImage" ref="657638132"/>
 					</object>
+					<object class="NSMenuItem" id="468923032">
+						<reference key="NSMenu" ref="327243441"/>
+						<string key="NSTitle">Menu Guard</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="449997933"/>
+						<reference key="NSMixedImage" ref="657638132"/>
+					</object>
+					<object class="NSMenuItem" id="343080599">
+						<reference key="NSMenu" ref="327243441"/>
+						<bool key="NSIsDisabled">YES</bool>
+						<bool key="NSIsSeparator">YES</bool>
+						<string key="NSTitle"/>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="449997933"/>
+						<reference key="NSMixedImage" ref="657638132"/>
+					</object>
 					<object class="NSMenuItem" id="677626647">
 						<reference key="NSMenu" ref="327243441"/>
 						<string key="NSTitle">Start Cycle</string>
@@ -172,6 +190,22 @@
 					</object>
 					<int key="connectionID">551</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleGuardAction:</string>
+						<reference key="source" ref="572031420"/>
+						<reference key="destination" ref="468923032"/>
+					</object>
+					<int key="connectionID">554</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">menuGuardedItem</string>
+						<reference key="source" ref="572031420"/>
+						<reference key="destination" ref="468923032"/>
+					</object>
+					<int key="connectionID">555</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -227,6 +261,8 @@
 							<reference ref="356825969"/>
 							<reference ref="677626647"/>
 							<reference ref="721690653"/>
+							<reference ref="468923032"/>
+							<reference ref="343080599"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -264,6 +300,16 @@
 						<reference key="parent" ref="327243441"/>
 						<string key="objectName">Stop Cycle</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">552</int>
+						<reference key="object" ref="468923032"/>
+						<reference key="parent" ref="327243441"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">553</int>
+						<reference key="object" ref="343080599"/>
+						<reference key="parent" ref="327243441"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -280,12 +326,16 @@
 					<string>544.IBPluginDependency</string>
 					<string>545.IBPluginDependency</string>
 					<string>546.IBPluginDependency</string>
+					<string>552.IBPluginDependency</string>
+					<string>553.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{515, 691}, {132, 103}}</string>
+					<string>{{490, 688}, {135, 133}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -311,7 +361,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">551</int>
+			<int key="maxID">555</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -326,9 +376,11 @@
 							<string>cycleAction:</string>
 							<string>quitAction:</string>
 							<string>stopCycleAction:</string>
+							<string>toggleGuardAction:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -338,11 +390,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>menuGuardedItem</string>
 							<string>status</string>
 							<string>statusMenu</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
 							<string>NSMenu</string>
 						</object>
