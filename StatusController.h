@@ -34,5 +34,5 @@
 -(IBAction) cycleAction:(id) sender;
 -(IBAction) stopCycleAction:(id) sender;
 -(IBAction) quitAction:(id) sender;
-
+-(void) setStatusTitle:(NSString *) statusTitle;
 @end

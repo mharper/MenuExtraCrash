@@ -48,7 +48,8 @@
   {
     if ((!menuOpen) || (menuOpen && !menuGuarded))
     {
-      [status setTitle:[completeTitle substringToIndex:titleLength]];
+      [self performSelectorOnMainThread:@selector(setStatusTitle:) withObject:[completeTitle substringToIndex:titleLength]
+                     waitUntilDone:YES];
       titleLength = (titleLength + 2) % 20;
       NSLog(@"Set Status");
     }
@@ -91,6 +92,11 @@
 -(IBAction) quitAction:(id) sender;
 {
   [[NSApplication sharedApplication] terminate:self];
+}
+
+-(void) setStatusTitle:(NSString *) statusTitle;
+{
+  [status setTitle:statusTitle];
 }
 
 -(void) menuWillOpen:(NSMenu *) menu
